@@ -15,23 +15,31 @@
 
     <div class="expense-table">
       <div class="row">
-        <table>
+        <table class="table table-striped table-bordered">
           <thead>
             <tr>
-              <td>Date</td>
-              <td>Merchant</td>
-              <td>Ammount</td>
-              <td>Comments</td>
-              <td>Status</td>
+              <th>Date</th>
+              <th>Merchant</th>
+              <th>Ammount</th>
+              <th>Comments</th>
+              <th>Status</th>
+              <th>Actions</th>
             </tr>
           </thead>
-          <tr ng-repeat="expense in sheet.expenses">
-            <td>{{expense.date | date:'shortDate'}}</td>
-            <td>{{expense.merchant}}</td>
-            <td>{{expense.totalExpense | currency}}</td>
-            <td>{{expense.comments}}</td>
-            <td>{{expense.status}}</td>
-          </tr>
+          <tbody>
+            <tr ng-repeat="expense in sheet.expenses">
+              <td>{{expense.date | date:'shortDate'}}</td>
+              <td>{{expense.merchant}}</td>
+              <td>{{expense.totalExpense | currency}}</td>
+              <td>{{expense.comments}}</td>
+              <td>{{expense.status}}</td>
+              <td>
+                <button>Edit</button>
+                <button>Delete</button>
+                <button>Reimbursed</button>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
