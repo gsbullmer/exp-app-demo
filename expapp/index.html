@@ -3,11 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
   <script type="text/javascript" src="js/angular.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
 </head>
-<body>
+<body ng-controller="ExpenseController as sheet">
+  <div class="container">
+    <h1 class="text-center">Expense Managment</h1>
 
+    <div class="login"></div>
+
+    <div class="expense-table">
+      <div class="row">
+        <table>
+          <thead>
+            <tr>
+              <td>Date</td>
+              <td>Merchant</td>
+              <td>Ammount</td>
+              <td>Comments</td>
+              <td>Status</td>
+            </tr>
+          </thead>
+          <tr ng-repeat="expense in sheet.expenses">
+            <td>{{expense.date | date:'shortDate'}}</td>
+            <td>{{expense.merchant}}</td>
+            <td>{{expense.totalExpense | currency}}</td>
+            <td>{{expense.comments}}</td>
+            <td>{{expense.status}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
 </body>
 </html>
