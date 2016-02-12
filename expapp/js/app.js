@@ -23,6 +23,19 @@
     this.isNewExpense = function(expense) {
       return expense.status === "New";
     };
+
+    this.createNewExpenseLine = function() {
+      this.expenses.push(new Expense());
+    };
+  });
+
+  app.controller('NewExpenseController', function() {
+    this.expense = new Expense();
+    this.expense.status = "New";
+
+    this.addExpense = function(sheet) {
+      sheet.expenses.push(this.expense);
+    }
   });
 
 })();
