@@ -19,13 +19,18 @@
       };
     }])
 
-    .controller('NewExpenseController', ['$scope', function($scope) {
-      var newExpense = new Expense();
+    .controller('ExpenseController', ['$scope', function($scope) {
 
-      $scope.addExpense = function() {
-        $scope.expenses.push(newExpense);
-        newExpense = new Expense();
+      $scope.updateExpense = function() {
+        $scope.newExpense.isEditing = false;
+        $scope.expense = angular.copy($scope.newExpense);
       }
+
+      $scope.resetExpense = function() {
+        $scope.newExpense = angular.copy($scope.expense);
+      }
+
+      $scope.resetExpense();
     }])
   ;
 
@@ -35,6 +40,7 @@
     this.date = new Date(date);
     this.comments = comments;
     this.isReimbursed = isReimbursed;
+    this.isEditing = false;
   }
 
   var lines = [
