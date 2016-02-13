@@ -19,14 +19,6 @@
         $scope.expenses.push(this.expense);
       };
 
-      $scope.removeExpense = function(expense) {
-        for (var i in $scope.expenses) {
-          console.log($scope.expenses[i] === expense);
-          if ($scope.expenses[i] === expense) {
-            $scope.expenses.splice(i, 1);
-          }
-        }
-      };
     }])
 
     .directive('expenseLine', function() {

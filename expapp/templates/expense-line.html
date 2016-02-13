@@ -24,7 +24,7 @@
 <td>
   <div class="button-group" ng-hide="expense.isReimbursed || expense.isEditing">
     <button ng-click="editExpense()">Edit</button>
-    <button ng-click="removeExpense(expense)">Delete</button>
+    <button ng-click="removeExpense()">Delete</button>
   </div>
   <div class="button-group" ng-show="expense.isEditing">
     <button ng-click="updateExpense()">Save</button>
