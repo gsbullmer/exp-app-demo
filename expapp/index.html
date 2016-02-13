@@ -36,7 +36,7 @@
                 <td><input ng-disabled="expense.isReimbursed" type="checkbox" ng-model="expense.isReimbursed" name="reimbursed"> Reimbursed</td>
                 <td>
                   <button>Save</button>
-                  <button ng-hide="expense.isReimbursed">Delete</button>
+                  <button ng-click="removeExpense(expense)" ng-hide="expense.isReimbursed">Delete</button>
                 </td>
               </ng-form>
             </tr>

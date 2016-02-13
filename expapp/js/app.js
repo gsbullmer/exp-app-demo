@@ -9,6 +9,14 @@
       $scope.createNewExpenseLine = function() {
         $scope.expenses.push(new Expense());
       };
+
+      $scope.removeExpense = function(expense) {
+        for (var i in $scope.expenses) {
+          if ($scope.expenses[i] === expense) {
+            $scope.expenses.splice(i, 1);
+          }
+        }
+      };
     }])
 
     .controller('NewExpenseController', ['$scope', function($scope) {
