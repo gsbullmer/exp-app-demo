@@ -6,12 +6,21 @@
       </tr>
     </thead>
     <tbody>
-      <tr expense-line ng-repeat="expense in expenses">
-        
+      <tr expense-line ng-form="expenseForm" ng-repeat="expense in expenses">
+
+      </tr>
+
+      <!--
+          Use ng-if to hide the table row from the DOM. This corrects the table
+          line coloring.
+      -->
+      <tr ng-if="expenses.length === 0">
+        <td class="text-center" colspan="6">
+          <p>No expenses entered yet. How about adding one...</p>
+        </td>
       </tr>
       <tr>
         <td class="text-center" colspan="6">
-          <p ng-hide="expenses.length">No expenses entered yet. How about adding one...</p>
           <button ng-click="createNewExpenseLine()">New Expense</button>
         </td>
       </tr>

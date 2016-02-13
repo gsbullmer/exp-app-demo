@@ -1,32 +1,32 @@
 <td>
-  <input type="date" ng-model="newExpense.date" ng-show="expense.isEditing">
-  <span ng-bind="expense.date | date: 'MM/dd/yyyy'" ng-hide="expense.isEditing"></span>
+  <input type="date" ng-model="newExpense.date" ng-show="isEditing">
+  <span ng-bind="expense.date | date: 'MM/dd/yyyy'" ng-hide="isEditing"></span>
 </td>
 <td>
-  <input type="text" ng-model="newExpense.merchant" ng-show="expense.isEditing">
-  <span ng-bind="expense.merchant" ng-hide="expense.isEditing"></span>
+  <input type="text" ng-model="newExpense.merchant" ng-show="isEditing">
+  <span ng-bind="expense.merchant" ng-hide="isEditing"></span>
 </td>
 <td>
-  <input type="number" ng-model="newExpense.totalExpense" ng-show="expense.isEditing">
-  <span ng-bind="expense.totalExpense | currency" ng-hide="expense.isEditing"></span>
+  <input type="number" ng-model="newExpense.totalExpense" ng-show="isEditing">
+  <span ng-bind="expense.totalExpense | currency" ng-hide="isEditing"></span>
 </td>
 <td>
-  <input type="text" ng-model="newExpense.comments" ng-show="expense.isEditing">
-  <span ng-bind="expense.comments" ng-hide="expense.isEditing"></span>
+  <input type="text" ng-model="newExpense.comments" ng-show="isEditing">
+  <span ng-bind="expense.comments" ng-hide="isEditing"></span>
 </td>
 <td>
-  <span class="radio-group" ng-show="expense.isEditing">
+  <span class="radio-group" ng-show="isEditing">
     <input type="radio" ng-model="newExpense.status" value="New"> New
     <input type="radio" ng-model="newExpense.status" value="Reimbursed"> Reimbursed
   </span>
-  <span ng-bind="expense.status" ng-hide="expense.isEditing"></span>
+  <span ng-bind="expense.status" ng-hide="isEditing"></span>
 </td>
 <td>
-  <div class="button-group" ng-hide="!isNewExpense() || expense.isEditing">
+  <div class="button-group" ng-hide="!isNewExpense() || isEditing">
     <button ng-click="editExpense()">Edit</button>
     <button ng-click="removeExpense()">Delete</button>
   </div>
-  <div class="button-group" ng-show="expense.isEditing">
+  <div class="button-group" ng-show="isEditing">
     <button ng-click="updateExpense()">Save</button>
     <button ng-click="resetExpense()">Cancel</button>
   </div>

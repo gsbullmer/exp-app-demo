@@ -2,7 +2,7 @@
   angular.module('expenseSheet', ['expenseLine'])
 
     .controller('ExpenseSheetController', ['$scope', function($scope) {
-      $scope.expenses = lines;
+      $scope.expenses = [];
       $scope.headers = [
         "Date",
         "Merchant",
@@ -13,10 +13,9 @@
       ];
 
       $scope.createNewExpenseLine = function() {
-        this.expense = new Expense();
-        this.expense.status = "New";
-        this.expense.isEditing = true;
-        $scope.expenses.push(this.expense);
+        var expense = new Expense();
+        expense.status = "New";
+        $scope.expenses.push(expense);
       };
 
     }])
@@ -36,7 +35,6 @@
     this.date = new Date(date);
     this.comments = comments;
     this.status = status;
-    this.isEditing = isEditing;
   };
 
   var lines = [

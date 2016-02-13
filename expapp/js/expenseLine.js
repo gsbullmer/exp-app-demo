@@ -2,23 +2,24 @@
   angular.module('expenseLine', [])
 
     .controller('ExpenseController', ['$scope', function($scope) {
+      this.isEditing = $scope.$invalid;
 
       $scope.isNewExpense = function() {
         return $scope.expense.status === "New";
       }
 
       $scope.editExpense = function() {
-        $scope.expense.isEditing = true;
+        this.isEditing = true;
         $scope.newExpense = $scope.expense;
       };
 
       $scope.updateExpense = function() {
-        $scope.newExpense.isEditing = false;
+        this.isEditing = false;
         $scope.expense = $scope.newExpense;
       };
 
       $scope.resetExpense = function() {
-        $scope.expense.isEditing = false;
+        this.isEditing = false;
         $scope.newExpense = $scope.expense;
       };
 
