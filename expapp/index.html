@@ -13,7 +13,7 @@
 
     <div class="login"></div>
 
-    <div class="expense-table" ng-controller="ExpenseSheetController as sheet">
+    <div class="expense-table" ng-controller="ExpenseSheetController">
       <div class="row">
         <table class="table table-striped table-bordered">
           <thead>
@@ -27,41 +27,29 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="expense in sheet.expenses">
-              <td>{{expense.date | date:'shortDate'}}</td>
-              <td>{{expense.merchant}}</td>
-              <td>{{expense.totalExpense | currency}}</td>
-              <td>{{expense.comments}}</td>
-              <td>{{expense.status}}</td>
-              <td>
-                <button ng-show="sheet.isNewExpense(expense)">Edit</button>
-                <button ng-show="sheet.isNewExpense(expense)">Delete</button>
-              </td>
-            </tr>
-            <tr ng-controller="NewExpenseController as form">
-              <td><input type="date" ng-model="form.expense.date"></td>
-              <td><input type="text" ng-model="form.expense.merchant"></td>
-              <td><input type="number" ng-model="form.expense.totalExpense"></td>
-              <td><input type="text" ng-model="form.expense.comments"></td>
-              <td>{{form.expense.status}}</td>
-              <td>
-                <button ng-click="form.addExpense(sheet)">Save</button>
-              </td>
+            <tr ng-repeat="expense in expenses">
+              <ng-form>
+                <td><input ng-disabled="expense.isReimbursed" type="date" ng-model="expense.date"></td>
+                <td><input ng-disabled="expense.isReimbursed" type="text" ng-model="expense.merchant"></td>
+                <td><input ng-disabled="expense.isReimbursed" type="number" ng-model="expense.totalExpense"></td>
+                <td><input ng-disabled="expense.isReimbursed" type="text" ng-model="expense.comments"></td>
+                <td><input ng-disabled="expense.isReimbursed" type="checkbox" ng-model="expense.isReimbursed" name="reimbursed"> Reimbursed</td>
+                <td>
+                  <button>Save</button>
+                  <button ng-hide="expense.isReimbursed">Delete</button>
+                </td>
+              </ng-form>
             </tr>
             <tr>
               <td class="text-center" colspan="6">
-                <p ng-hide="sheet.expenses.length">No expenses entered yet. How about adding one...</p>
-                <button ng-click="sheet.createNewExpenseLine()">New Expense</button>
+                <p ng-hide="expenses.length">No expenses entered yet. How about adding one...</p>
+                <button ng-click="createNewExpenseLine()">New Expense</button>
               </td>
             </tr>
           </tbody>
         </table>
-        <div class="expense-form">
-
-        </div>
       </div>
     </div>
-
 
   </div>
 </body>

@@ -1,41 +1,38 @@
 (function() {
   "use strict"
 
-  var app = angular.module('expApp', []);
+  var app = angular.module('expApp', [])
 
-  function Expense(merchant, totalExpense, date, comments, status) {
+    .controller('ExpenseSheetController', ['$scope', function($scope) {
+      $scope.expenses = lines;
+
+      $scope.createNewExpenseLine = function() {
+        $scope.expenses.push(new Expense());
+      };
+    }])
+
+    .controller('NewExpenseController', ['$scope', function($scope) {
+      var newExpense = new Expense();
+
+      $scope.addExpense = function() {
+        $scope.expenses.push(newExpense);
+        newExpense = new Expense();
+      }
+    }])
+  ;
+
+  function Expense(merchant, totalExpense, date, comments, isReimbursed) {
     this.merchant = merchant;
     this.totalExpense = totalExpense;
-    this.date = date;
+    this.date = new Date(date);
     this.comments = comments;
-    this.status = status;
+    this.isReimbursed = isReimbursed;
   }
 
   var lines = [
-    new Expense("Adam", 1500, 312341643256, "", "New"),
-    new Expense("Bob", 2749.99, 312341643256, "This was expensive!", "New"),
-    new Expense("Chris", 2.49, 312341643256, "Energy drink for lunch.", "Reimbursed")
+    new Expense("Adam", 1500, 312341643256, "", false),
+    new Expense("Bob", 2749.99, 312341643256, "This was expensive!", false),
+    new Expense("Chris", 2.49, 312341643256, "Energy drink for lunch.", true)
   ];
-
-  app.controller('ExpenseSheetController', function(){
-    this.expenses = lines;
-
-    this.isNewExpense = function(expense) {
-      return expense.status === "New";
-    };
-
-    this.createNewExpenseLine = function() {
-      this.expenses.push(new Expense());
-    };
-  });
-
-  app.controller('NewExpenseController', function() {
-    this.expense = new Expense();
-    this.expense.status = "New";
-
-    this.addExpense = function(sheet) {
-      sheet.expenses.push(this.expense);
-    }
-  });
 
 })();
