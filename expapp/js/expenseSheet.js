@@ -3,6 +3,14 @@
 
     .controller('ExpenseSheetController', ['$scope', function($scope) {
       $scope.expenses = lines;
+      $scope.headers = [
+        "Date",
+        "Merchant",
+        "Amount",
+        "Comments",
+        "Status",
+        "Actions"
+      ];
 
       $scope.createNewExpenseLine = function() {
         $scope.expenses.push(new Expense());
