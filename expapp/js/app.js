@@ -5,9 +5,9 @@
 
     .directive('expenseTable', function() {
       return {
-        'restrict': "E",
-        'templateUrl': "templates/expense-sheet.html",
-        'controller': "ExpenseSheetController"
+        restrict: "E",
+        templateUrl: "templates/expense-sheet.html",
+        controller: "ExpenseSheetController"
       };
     })
   ;

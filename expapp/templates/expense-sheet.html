@@ -6,18 +6,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-controller="ExpenseController" ng-repeat="expense in expenses">
-        <ng-form>
-          <td><input ng-disabled="expense.isReimbursed" type="date" ng-model="newExpense.date"></td>
-          <td><input ng-disabled="expense.isReimbursed" type="text" ng-model="newExpense.merchant"></td>
-          <td><input ng-disabled="expense.isReimbursed" type="number" ng-model="newExpense.totalExpense"></td>
-          <td><input ng-disabled="expense.isReimbursed" type="text" ng-model="newExpense.comments"></td>
-          <td><input ng-disabled="expense.isReimbursed" type="checkbox" ng-model="newExpense.isReimbursed" name="reimbursed"> Reimbursed</td>
-          <td>
-            <button ng-click="updateExpense()" ng-hide="expense.isReimbursed">Save</button>
-            <button ng-click="removeExpense(expense)" ng-hide="expense.isReimbursed">Delete</button>
-          </td>
-        </ng-form>
+      <tr expense-line ng-repeat="expense in expenses">
+        
       </tr>
       <tr>
         <td class="text-center" colspan="6">

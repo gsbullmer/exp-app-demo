@@ -1,0 +1,33 @@
+<td>
+  <input type="date" ng-model="newExpense.date" ng-show="expense.isEditing">
+  <span ng-bind="expense.date | date: 'MM/dd/yyyy'" ng-hide="expense.isEditing"></span>
+</td>
+<td>
+  <input type="text" ng-model="newExpense.merchant" ng-show="expense.isEditing">
+  <span ng-bind="expense.merchant" ng-hide="expense.isEditing"></span>
+</td>
+<td>
+  <input type="number" ng-model="newExpense.totalExpense" ng-show="expense.isEditing">
+  <span ng-bind="expense.totalExpense | currency" ng-hide="expense.isEditing"></span>
+</td>
+<td>
+  <input type="text" ng-model="newExpense.comments" ng-show="expense.isEditing">
+  <span ng-bind="expense.comments" ng-hide="expense.isEditing"></span>
+</td>
+<td>
+  <span class="radio-group" ng-show="expense.isEditing">
+    <input type="radio" name="expense.status" value="New"> New
+    <input type="radio" name="expense.status" value="Reimbursed"> Reimbursed
+  </span>
+  <span ng-bind="expense.status" ng-hide="expense.isEditing"></span>
+</td>
+<td>
+  <div class="button-group" ng-hide="expense.isReimbursed || expense.isEditing">
+    <button ng-click="editExpense()">Edit</button>
+    <button ng-click="removeExpense(expense)">Delete</button>
+  </div>
+  <div class="button-group" ng-show="expense.isEditing">
+    <button ng-click="updateExpense()">Save</button>
+    <button ng-click="resetExpense()">Cancel</button>
+  </div>
+</td>
