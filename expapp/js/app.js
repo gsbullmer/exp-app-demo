@@ -1,7 +1,7 @@
 (function() {
   "use strict"
 
-  var app = angular.module('expApp', ['expenseTable'])
+  var app = angular.module('expApp', ['expenseSheet'])
 
     .directive('expenseTable', function() {
       return {

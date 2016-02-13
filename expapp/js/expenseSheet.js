@@ -1,5 +1,5 @@
 (function() {
-  angular.module('expenseTable', [])
+  angular.module('expenseSheet', [])
 
     .controller('ExpenseSheetController', ['$scope', function($scope) {
       $scope.expenses = lines;
