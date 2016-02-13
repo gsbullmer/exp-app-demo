@@ -22,7 +22,7 @@
   <span ng-bind="expense.status" ng-hide="expense.isEditing"></span>
 </td>
 <td>
-  <div class="button-group" ng-hide="expense.isReimbursed || expense.isEditing">
+  <div class="button-group" ng-hide="!isNewExpense() || expense.isEditing">
     <button ng-click="editExpense()">Edit</button>
     <button ng-click="removeExpense()">Delete</button>
   </div>

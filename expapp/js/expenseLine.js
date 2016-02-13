@@ -3,6 +3,10 @@
 
     .controller('ExpenseController', ['$scope', function($scope) {
 
+      $scope.isNewExpense = function() {
+        return $scope.expense.status === "New";
+      }
+
       $scope.editExpense = function() {
         $scope.expense.isEditing = true;
         $scope.newExpense = $scope.expense;
