@@ -16,8 +16,8 @@
 </td>
 <td>
   <span class="radio-group" ng-show="expense.isEditing">
-    <input type="radio" name="expense.status" value="New"> New
-    <input type="radio" name="expense.status" value="Reimbursed"> Reimbursed
+    <input type="radio" ng-model="newExpense.status" value="New"> New
+    <input type="radio" ng-model="newExpense.status" value="Reimbursed"> Reimbursed
   </span>
   <span ng-bind="expense.status" ng-hide="expense.isEditing"></span>
 </td>
