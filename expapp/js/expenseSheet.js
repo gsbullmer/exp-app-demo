@@ -1,8 +1,12 @@
 (function() {
+  'useStrict'
+  
+  /* global angular */
   angular.module('expenseSheet', ['expenseLine', 'newExpenseForm'])
 
     .controller('ExpenseSheetController', ['$scope', function($scope) {
       $scope.expenses = [];
+      $scope.hasNewExpense = false;
       $scope.headers = [
         "Date",
         "Merchant",
@@ -13,9 +17,7 @@
       ];
 
       $scope.createNewExpenseLine = function() {
-        var expense = new Expense();
-        expense.status = "New";
-        $scope.expenses.push(expense);
+        $scope.hasNewExpense = true;
       };
 
     }])
@@ -33,10 +35,10 @@
         restrict: "A",
         templateUrl: "templates/new-expense-form.html",
         controller: "NewExpenseFormController"
-      }
+      };
     })
   ;
-
+  
   function Expense(merchant, totalExpense, date, comments, status, isEditing) {
     this.merchant = merchant;
     this.totalExpense = totalExpense;

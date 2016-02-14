@@ -1,6 +1,7 @@
 (function() {
-  "use strict"
-
+  'useStrict';
+  
+  /* global angular */
   var app = angular.module('expApp', ['expenseSheet'])
 
     .directive('expenseTable', function() {

@@ -1,4 +1,7 @@
 (function() {
+  'useStrict'
+  
+  /* global angular */
   angular.module('expenseLine', [])
 
     .controller('ExpenseController', ['$scope', function($scope) {

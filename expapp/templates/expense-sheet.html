@@ -19,14 +19,16 @@
           No expenses entered yet. How about adding one...
         </td>
       </tr>
-      <tr>
+    </tbody>
+    <tfoot>
+      <tr ng-hide="hasNewExpense">
         <td class="text-center" colspan="{{headers.length}}">
           <button ng-click="createNewExpenseLine()">New Expense</button>
         </td>
-        <ng-form new-expense-form ng-show="false" name="new-expense-form">
-          
-        </ng-form>
       </tr>
-    </tbody>
+      <tr new-expense-form ng-show="hasNewExpense">
+        
+      </tr>
+    </tfoot>
   </table>
 </div>
