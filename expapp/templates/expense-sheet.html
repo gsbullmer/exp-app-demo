@@ -15,12 +15,12 @@
           line coloring.
       -->
       <tr ng-if="expenses.length === 0">
-        <td class="text-center" colspan="6">
-          <p>No expenses entered yet. How about adding one...</p>
+        <td class="text-center" colspan="{{headers.length}}">
+          No expenses entered yet. How about adding one...
         </td>
       </tr>
       <tr>
-        <td class="text-center" colspan="6">
+        <td class="text-center" colspan="{{headers.length}}">
           <button ng-click="createNewExpenseLine()">New Expense</button>
         </td>
       </tr>
