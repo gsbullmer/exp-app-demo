@@ -1,5 +1,5 @@
 (function() {
-  angular.module('expenseSheet', ['expenseLine'])
+  angular.module('expenseSheet', ['expenseLine', 'newExpenseForm'])
 
     .controller('ExpenseSheetController', ['$scope', function($scope) {
       $scope.expenses = [];
@@ -26,6 +26,14 @@
         templateUrl: "templates/expense-line.html",
         controller: "ExpenseController"
       };
+    })
+    
+    .directive('newExpenseForm', function() {
+      return {
+        restrict: "A",
+        templateUrl: "templates/new-expense-form.html",
+        controller: "NewExpenseFormController"
+      }
     })
   ;
 
