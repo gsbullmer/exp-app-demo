@@ -2,18 +2,14 @@
   'useStrict'
 
   /* global angular */
-  angular.module('newExpenseForm', [])
+  angular.module('expenseForm', [])
 
-    .controller('NewExpenseFormController', ['$scope', function($scope) {
+    .controller('ExpenseFormController', ['$scope', function($scope) {
       $scope.newExpense = {};
 
       $scope.saveExpense = function() {
-        if ($scope.expenseForm.$valid) {
-          $scope.expenses.push($scope.newExpense);
-          $scope.cancelExpense();
-        } else {
-          console.log($scope.expenseForm.$error);
-        }
+        $scope.expenses.push($scope.newExpense);
+        $scope.cancelExpense();
       };
 
       $scope.cancelExpense = function() {

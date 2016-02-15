@@ -2,7 +2,7 @@
   'useStrict'
 
   /* global angular */
-  angular.module('expenseSheet', ['expenseLine', 'newExpenseForm'])
+  angular.module('expenseSheet', ['expenseLine', 'expenseForm'])
 
     .controller('ExpenseSheetController', ['$scope', function($scope) {
       $scope.expenses = [];
@@ -30,11 +30,11 @@
       };
     })
 
-    .directive('newExpenseForm', function() {
+    .directive('expenseForm', function() {
       return {
         restrict: "A",
-        templateUrl: "templates/new-expense-form.html",
-        controller: "NewExpenseFormController"
+        templateUrl: "templates/expense-form.html",
+        controller: "ExpenseFormController"
       };
     })
   ;

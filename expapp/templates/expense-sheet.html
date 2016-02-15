@@ -1,36 +1,26 @@
 <div class="row">
-  <form name="expenseForm" novalidate>
-    <table class="table table-striped table-bordered">
-      <thead>
-        <tr>
-          <th ng-repeat="name in headers"><span ng-bind="name"></span></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr expense-line ng-form="expenseForm" ng-repeat="expense in expenses">
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th ng-repeat="name in headers"><span ng-bind="name"></span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr expense-line ng-repeat="expense in expenses">
 
-        </tr>
+      </tr>
 
-        <!--
-            Use ng-if to hide the table row from the DOM. This corrects the table
-            line coloring.
-        -->
-        <tr ng-if="expenses.length === 0">
-          <td class="text-center" colspan="{{headers.length}}">
-            No expenses entered yet. How about adding one...
-          </td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr ng-hide="hasNewExpense">
-          <td class="text-center" colspan="{{headers.length}}">
-            <button ng-click="createNewExpenseLine()">New Expense</button>
-          </td>
-        </tr>
-        <tr new-expense-form ng-show="hasNewExpense">
-
-        </tr>
-      </tfoot>
-    </table>
-  </form>
+      <!--
+          Use ng-if to hide the table row from the DOM. This corrects the table
+          line coloring.
+      -->
+      <tr ng-if="expenses.length === 0">
+        <td class="text-center" colspan="{{headers.length}}">
+          No expenses entered yet. How about adding one...
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button ng-click="createNewExpenseLine()">New Expense</button>
+  <form expense-form ng-show="hasNewExpense" expense="expenseToEdit" novalidate></form>
 </div>
