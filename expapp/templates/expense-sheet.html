@@ -21,6 +21,7 @@
       </tr>
     </tbody>
   </table>
-  <button ng-click="createNewExpenseLine()">New Expense</button>
-  <form expense-form ng-show="hasNewExpense" expense="expenseToEdit" novalidate></form>
+
+  <button ng-show="editing == undefined" ng-click="createNewExpenseLine()">New Expense</button>
+  <form expense-form ng-hide="editing == undefined" novalidate></form>
 </div>

@@ -3,18 +3,17 @@
     <tr>
       <td>
         Merchant:
-        <input type="text" name="merchant" ng-model="newExpense.merchant" required>
+        <input type="text" name="merchant" ng-model="expense.merchant" required>
       </td>
 
       <td>
         Total expense:
-        <input type="number" name="total-expense" ng-model="newExpense.totalExpense" required>
+        <input type="number" name="total-expense" ng-model="expense.totalExpense" required>
       </td>
 
       <td>
         <span>Expense date:</span>
-        <input type="date" name="date" ng-model="newExpense.date" required>
-        <em ng-show="date.$invalid">* required</em>
+        <input type="date" name="date" ng-model="expense.date" required>
       </td>
     </tr>
   </table>
@@ -25,17 +24,17 @@
     <tr>
       <td>
         <p>Comments:</p>
-        <textarea type="text" name="comments" ng-model="newExpense.comments"></textarea>
+        <textarea type="text" name="comments" ng-model="expense.comments"></textarea>
       </td>
 
       <td>
         <p>Status:</p>
-        <input type="radio" name="status" ng-model="newExpense.status" value="New"> New
-        <input type="radio" name="status" ng-model="newExpense.status" value="Reimbursed"> Reimbursed
+        <input type="radio" name="status" ng-model="expense.status" value="New" ng-selected="!expense.status"> New
+        <input type="radio" name="status" ng-model="expense.status" value="Reimbursed"> Reimbursed
       </td>
     </tr>
   </table>
 </ng-form>
 
-<input type="submit" ng-click="requiredInfo.$valid && saveExpense()" value="Save">
+<input type="submit" ng-click="requiredInfo.$valid && addOrUpdateExpense()">
 <button ng-click="cancelExpense()">Cancel</button>

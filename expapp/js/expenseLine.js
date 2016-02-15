@@ -1,28 +1,29 @@
 (function() {
   'useStrict'
-  
+
   /* global angular */
   angular.module('expenseLine', [])
 
     .controller('ExpenseController', ['$scope', function($scope) {
-      this.isEditing = $scope.$invalid;
+      $scope.isEditing = $scope.$invalid;
 
       $scope.isNewExpense = function() {
         return $scope.expense.status === "New";
       }
 
       $scope.editExpense = function() {
-        this.isEditing = true;
-        $scope.newExpense = $scope.expense;
+        //$scope.isEditing = true;
+        $scope.setEditing($scope.expense);
+        //$scope.newExpense = $scope.expense;
       };
 
       $scope.updateExpense = function() {
-        this.isEditing = false;
+        $scope.isEditing = false;
         $scope.expense = $scope.newExpense;
       };
 
       $scope.resetExpense = function() {
-        this.isEditing = false;
+        $scope.isEditing = false;
         $scope.newExpense = $scope.expense;
       };
 
@@ -34,7 +35,7 @@
         }
       };
 
-      $scope.resetExpense();
+      //$scope.resetExpense();
     }])
   ;
 

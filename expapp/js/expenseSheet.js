@@ -5,8 +5,8 @@
   angular.module('expenseSheet', ['expenseLine', 'expenseForm'])
 
     .controller('ExpenseSheetController', ['$scope', function($scope) {
-      $scope.expenses = [];
-      $scope.hasNewExpense = false;
+      $scope.expenses = lines;
+      $scope.editing = undefined;
       $scope.headers = [
         "Date",
         "Merchant",
@@ -17,7 +17,14 @@
       ];
 
       $scope.createNewExpenseLine = function() {
-        $scope.hasNewExpense = true;
+        var newExpense = new Expense();
+        newExpense.status = "New";
+        $scope.setEditing(newExpense);
+        $scope.expenses.push(newExpense);
+      };
+
+      $scope.setEditing = function(expense) {
+        $scope.editing = expense;
       };
 
     }])
@@ -39,7 +46,7 @@
     })
   ;
 
-  function Expense(merchant, totalExpense, date, comments, status, isEditing) {
+  function Expense(merchant, totalExpense, date, comments, status) {
     this.merchant = merchant;
     this.totalExpense = totalExpense;
     this.date = new Date(date);
@@ -48,9 +55,9 @@
   };
 
   var lines = [
-    new Expense("Adam", 1500, 312341643256, "", "New", false),
-    new Expense("Bob", 2749.99, 312341643256, "This was expensive!", "New", false),
-    new Expense("Chris", 2.49, 312341643256, "Energy drink for lunch.", "Reimbursed", false)
+    new Expense("Adam", 1500, 312341643256, "", "New"),
+    new Expense("Bob", 2749.99, 312341643256, "This was expensive!", "New"),
+    new Expense("Chris", 2.49, 312341643256, "Energy drink for lunch.", "Reimbursed")
   ];
 
 })();
