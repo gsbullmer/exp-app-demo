@@ -11,6 +11,8 @@
         if ($scope.expenseForm.$valid) {
           $scope.expenses.push($scope.newExpense);
           $scope.cancelExpense();
+        } else {
+          console.log($scope.expenseForm.$error);
         }
       };
 

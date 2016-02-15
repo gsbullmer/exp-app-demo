@@ -1,6 +1,6 @@
 (function() {
   'useStrict'
-  
+
   /* global angular */
   angular.module('expenseSheet', ['expenseLine', 'newExpenseForm'])
 
@@ -29,7 +29,7 @@
         controller: "ExpenseController"
       };
     })
-    
+
     .directive('newExpenseForm', function() {
       return {
         restrict: "A",
@@ -38,7 +38,7 @@
       };
     })
   ;
-  
+
   function Expense(merchant, totalExpense, date, comments, status, isEditing) {
     this.merchant = merchant;
     this.totalExpense = totalExpense;
