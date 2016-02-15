@@ -6,7 +6,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr expense-line ng-repeat="expense in expenses">
+      <tr expense-line ng-class="{editing: editing === expense, reimbursed: expense.status === 'Reimbursed'}" ng-repeat="expense in expenses">
 
       </tr>
 

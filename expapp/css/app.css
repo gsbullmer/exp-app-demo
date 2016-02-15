@@ -1,6 +1,17 @@
-.ng-invalid.ng-dirty {
+.ng-invalid.ng-touched {
   border-color: red;
+  background-color: pink;
+  color: red;
 }
-.ng-valid.ng-dirty {
-  border-color: green;
+
+.editing {
+  font-weight: bolder;
+  color: blue;
+  text-decoration: underline;
+}
+
+.reimbursed {
+  font-style: italic;
+  text-decoration: line-through;
+  color: darkgray;
 }
