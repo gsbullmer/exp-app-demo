@@ -7,12 +7,14 @@
     .controller('ExpenseFormController', ['$scope', function($scope) {
 
       $scope.expense = {};
+
       $scope.$watch("editing", function(newValue, oldValue) {
         console.log("onChange() called");
         if ($scope.editing) {
           $scope.expense = angular.copy($scope.editing);
         } else {
           $scope.expense = {};
+          $scope.expense.status = "New";
         }
       });
 
@@ -23,15 +25,19 @@
           $scope.editing.date = $scope.expense.date;
           $scope.editing.comments = $scope.expense.comments;
           $scope.editing.status = $scope.expense.status;
-          $scope.setEditing(undefined);
         } else {
-          $scope.expenses.push($scope.expense);
+          $scope.addExpense($scope.expense);
         }
-        $scope.expense = {};
+        $scope.cancelExpense();
       };
 
       $scope.cancelExpense = function() {
+        $scope.expense = {};
+        $scope.expense.status = "New";
         $scope.setEditing(undefined);
+        $scope.setNewExpense(false);
+        $scope.expenseForm.$setPristine();
+        $scope.expenseForm.$setUntouched();
       };
 
     }])

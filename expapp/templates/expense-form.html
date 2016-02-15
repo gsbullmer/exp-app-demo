@@ -1,40 +1,37 @@
-<ng-form name="requiredInfo">
-  <table class="table">
-    <tr>
-      <td>
-        Merchant:
-        <input type="text" name="merchant" ng-model="expense.merchant" required>
-      </td>
+<h3 ng-show="isNewExpense">New Expense:</h3>
+<h3 ng-hide="isNewExpense">Update Expense:</h3>
 
-      <td>
-        Total expense:
-        <input type="number" name="total-expense" ng-model="expense.totalExpense" required>
-      </td>
+<table class="table">
+  <tr>
+    <td>
+      Merchant:
+      <input type="text" name="merchant" ng-model="expense.merchant" required>
+    </td>
 
-      <td>
-        <span>Expense date:</span>
-        <input type="date" name="date" ng-model="expense.date" required>
-      </td>
-    </tr>
-  </table>
-</ng-form>
+    <td>
+      Total expense:
+      <input type="number" name="total-expense" ng-model="expense.totalExpense" required>
+    </td>
 
-<ng-form name="optionalInfo">
-  <table class="table">
-    <tr>
-      <td>
-        <p>Comments:</p>
-        <textarea type="text" name="comments" ng-model="expense.comments"></textarea>
-      </td>
+    <td>
+      <span>Expense date:</span>
+      <input type="date" name="date" ng-model="expense.date" required>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <p>Comments:</p>
+      <textarea type="text" name="comments" ng-model="expense.comments"></textarea>
+    </td>
 
-      <td>
-        <p>Status:</p>
-        <input type="radio" name="status" ng-model="expense.status" value="New" ng-selected="!expense.status"> New
-        <input type="radio" name="status" ng-model="expense.status" value="Reimbursed"> Reimbursed
-      </td>
-    </tr>
-  </table>
-</ng-form>
+    <td>
+      <p>Status:</p>
+      <input type="radio" name="status" ng-model="expense.status" value="New"> New
+      <input type="radio" name="status" ng-model="expense.status" value="Reimbursed"> Reimbursed
+    </td>
+  </tr>
+</table>
 
-<input type="submit" ng-click="requiredInfo.$valid && addOrUpdateExpense()">
+
+<input type="submit" ng-click="expenseForm.$valid && addOrUpdateExpense()">
 <button ng-click="cancelExpense()">Cancel</button>

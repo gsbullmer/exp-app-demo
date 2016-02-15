@@ -14,8 +14,8 @@
   <span ng-bind="expense.status"></span>
 </td>
 <td>
-  <div class="button-group" ng-show="isNewExpense() && editing === undefined">
-    <button ng-click="editExpense()">Edit</button>
-    <button ng-click="removeExpense()">Delete</button>
+  <div class="button-group" ng-show="isNewExpense() && !showForm()">
+    <button ng-click="setEditing(expense);">Edit</button>
+    <button ng-click="removeExpense(expense)">Delete</button>
   </div>
 </td>

@@ -7,6 +7,7 @@
     .controller('ExpenseSheetController', ['$scope', function($scope) {
       $scope.expenses = lines;
       $scope.editing = undefined;
+      $scope.isNewExpense = false;
       $scope.headers = [
         "Date",
         "Merchant",
@@ -17,14 +18,31 @@
       ];
 
       $scope.createNewExpenseLine = function() {
-        var newExpense = new Expense();
-        newExpense.status = "New";
-        $scope.setEditing(newExpense);
-        $scope.expenses.push(newExpense);
+        $scope.setNewExpense(true);
       };
 
       $scope.setEditing = function(expense) {
         $scope.editing = expense;
+      };
+
+      $scope.setNewExpense = function(val) {
+        $scope.isNewExpense = val;
+      };
+
+      $scope.showForm = function() {
+        return $scope.isNewExpense || $scope.editing;
+      };
+
+      $scope.removeExpense = function(expense) {
+        for (var i in $scope.expenses) {
+          if ($scope.expenses[i] === expense) {
+            $scope.expenses.splice(i,1);
+          }
+        }
+      };
+
+      $scope.addExpense = function(expense) {
+        $scope.expenses.push(expense);
       };
 
     }])
