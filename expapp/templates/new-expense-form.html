@@ -1,20 +1,20 @@
 <td>
-  <input type="date" ng-model="newExpense.date">
+  <input type="date" name="date" ng-model="newExpense.date" required>
 </td>
 <td>
-  <input type="text" ng-model="newExpense.merchant">
+  <input type="text" name="merchant" ng-model="newExpense.merchant" required>
 </td>
 <td>
-  <input type="number" ng-model="newExpense.totalExpense">
+  <input type="number" name="total-expense" ng-model="newExpense.totalExpense" required>
 </td>
 <td>
-  <input type="text" ng-model="newExpense.comments">
+  <input type="text" name="comments" ng-model="newExpense.comments">
 </td>
 <td>
-  <input type="radio" ng-model="newExpense.status" value="New"> New
-  <input type="radio" ng-model="newExpense.status" value="Reimbursed"> Reimbursed
+  <input type="radio" name="status" ng-model="newExpense.status" value="New"> New
+  <input type="radio" name="status" ng-model="newExpense.status" value="Reimbursed"> Reimbursed
 </td>
 <td>
-  <button ng-click="saveExpense(true)">Save</button>
-  <button ng-click="saveExpense(false)">Cancel</button>
+  <button name="submit" ng-click="saveExpense()">Save</button>
+  <button ng-click="cancelExpense()">Cancel</button>
 </td>
