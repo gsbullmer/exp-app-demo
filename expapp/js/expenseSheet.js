@@ -5,7 +5,7 @@
   angular.module('expenseSheet', ['expenseLine', 'expenseForm'])
 
     .controller('ExpenseSheetController', ['$scope', function($scope) {
-      $scope.expenses = lines;
+      $scope.expenses = [];
       $scope.editing = undefined;
       $scope.isNewExpense = false;
       $scope.headers = [
@@ -71,11 +71,5 @@
     this.comments = comments;
     this.status = status;
   };
-
-  var lines = [
-    new Expense("Adam", 1500, 312341643256, "", "New"),
-    new Expense("Bob", 2749.99, 312341643256, "This was expensive!", "New"),
-    new Expense("Chris", 2.49, 312341643256, "Energy drink for lunch.", "Reimbursed")
-  ];
 
 })();
